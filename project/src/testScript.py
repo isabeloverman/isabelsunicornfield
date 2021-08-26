@@ -6,3 +6,8 @@ import requests
 api_url = "https://jsonplaceholder.typicode.com/todos/1"
 response = requests.get(api_url)
 response.json()
+
+# status code for GET request
+response.status_code
+
+response.headers["Content-Type"]
