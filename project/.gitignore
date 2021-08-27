@@ -1,7 +1,0 @@
-# This is the git ignore file for my first project
-
-#ignore whole venv directory
-**/venv/
-
-#ignore vscode genereated files
-*.vscode

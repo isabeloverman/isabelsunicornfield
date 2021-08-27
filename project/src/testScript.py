@@ -6,7 +6,7 @@ import requests
 import argparse
 
 # send GET request to JSONPlaceholder
-api_url = "https://staging-app.infosecinstitute.com/portal/api/v1/learners?llimit=2"
+api_url = "http://api.open-notify.org/astros.json"
 response = requests.get(api_url)
 response.json()
 
@@ -18,3 +18,4 @@ code = response.status_code
 response.headers["Content-Type"]
 
 print(response)
+print(response.headers["date"]) #shows date and time of request
