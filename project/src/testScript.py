@@ -1,12 +1,15 @@
 # This is a test script. The goal is to get a connection with an API.
 # https://www.youtube.com/watch?v=W--_EOzdTHk << good reference
 
-#import json
+import os
 import requests
 import argparse
 
+# get api token from envrionment variable
+token = os.environ['api-token']
+
 # send GET request to JSONPlaceholder
-api_url = "http://api.open-notify.org/astros.json"
+api_url = "https://staging-app.infosecinstitute.com/portal/api/v1/learners?limit=2"
 response = requests.get(api_url)
 response.json()
 
