@@ -1,20 +1,21 @@
-__author__ = 'bdm4'
+__author__ = 'bdm4 and isabeloverman'
 
-import requests, json
+import requests
+import json 
 import subprocess
 import sys
 
-authorize_url = "https://api.byu.edu/authorize"
+authorize_url = "https://staging-app.infosecinstitute.com/portal/api/v1"
 token_url = "https://api.byu.edu/token"
 
 #callback url specified when the application was defined
-callback_uri = "<<your redirect_uri goes here>>"
+callback_uri = "https://staging-app.infosecinstitute.com/portal/skills/home"
 
-test_api_url = "<<the URL of the API you want to call, along with any parameters, goes here>>"
+test_api_url = "https://staging-app.infosecisntitute.com/paortal/api/v1/learners?limit=2"
 
 #client (application) credentials - located at apim.byu.edu
-client_id = '<<your client_id goes here>>'
-client_secret = '<<your client_secret goes here>>'
+client_id = 'clientid123'
+client_secret = 'cli3nts3cr3t'
 
 #step A - simulate a request from a browser on the authorize_url - will return an authorization code after the user is
 # prompted for credentials.
@@ -24,7 +25,7 @@ authorization_redirect_url = authorize_url + '?response_type=code&client_id=' + 
 
 print ("go to the following url on the browser and enter the code from the returned url: ")
 print ("---  " + authorization_redirect_url + "  ---")
-authorization_code = raw_input('code: ')
+authorization_code = input('code: ')
 
 # step I, J - turn the authorization code into a access token, etc
 data = {'grant_type': 'authorization_code', 'code': authorization_code, 'redirect_uri': callback_uri}
