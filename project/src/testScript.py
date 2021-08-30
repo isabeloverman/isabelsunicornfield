@@ -9,21 +9,34 @@ import argparse
 
 # lines from Byan's code about parsing args that look important
 parser = argparse.ArgumentParser()
-parser.add_argument('-u', '--username', metavar='email:password', help='Used to make API calls', nargs=1, required=True)
-args = parser.parse_args()
+#parser.add_argument('-u', '--username', metavar='email:password', help='Used to make API calls', nargs=1, required=True)
+#args = parser.parse_args()
 
 #callback url specified when the application was defined
-callback_uri = "https://staging-app.infosecinstitute.com"
+#callback_uri = "https://staging-app.infosecinstitute.com"
 
 # get api token from envrionment variable
 token = os.environ['api-token']
 
+
 # send GET request to Skills
 api_url = "https://staging-app.infosecinstitute.com/portal/api/v1/learners?limit=2"
-response = requests.get(api_url)
-response.json()
+my_headers = {'Authorization' : 'Bearer {os.environ[api-token]}'}
 
-print(response.json())
+try:
+    response = requests.get(api_url)
+    print(response.json())
+
+    response = requests.get(api_url, headers=my_headers)
+    print(response.json())
+except requests.exceptions.HTTPError as errh:
+    print(errh)
+except requests.exceptions.ConnectionError as errc:
+    print(errc)
+except requests.exceptions.Timeout as errt:
+    print(errt)
+except requests.exceptions.RequestException as err:
+    print(err)
 
 # status code for GET
 code = response.status_code
@@ -31,7 +44,7 @@ code = response.status_code
 response.headers["Content-Type"]
 
 print(response)
-print(response.headers["date"]) #shows date and time of request
+#print(response.headers["date"]) #shows date and time of request
 
 
 
@@ -44,7 +57,8 @@ resp = s.send(prepped)
 if resp.status_code != 200:
     print(f'Error: status code {resp.status_code} getting {api_url}.')
 else:
-    # Output warning that article's old seciton ID is same as new section ID
+    # Output warning that [warning here...]
+    print("Request was a success!")
     json_data = json.loads(resp.text)
 
 
