@@ -1,6 +1,8 @@
 # author: isabeloverman
 # This is a test script. The goal is to get a connection with an API.
-# https://www.youtube.com/watch?v=W--_EOzdTHk << good reference
+# \/ \/ good references \/ \/
+# https://www.nylas.com/blog/use-python-requests-module-rest-apis/#how-to-use-python-requests
+# https://www.youtube.com/watch?v=W--_EOzdTHk 
 
 import os
 import re
@@ -24,7 +26,7 @@ api_url = "https://staging-app.infosecinstitute.com/portal/api/v1/learners?limit
 my_headers = {'Authorization' : 'Bearer {os.environ[api-token]}'}
 
 try:
-    response = requests.get(api_url)
+    response = requests.get(api_url, auth=(username, token))
     print(response.json())
 
     response = requests.get(api_url, headers=my_headers)
