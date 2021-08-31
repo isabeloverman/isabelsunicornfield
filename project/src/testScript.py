@@ -14,15 +14,16 @@ api_token = str(input())     # https://www.geeksforgeeks.org/taking-input-from-c
 
 api_url_base =  "http://staging-app.infosecinstitute.com/portal/api/v1/"
 
-headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer {api_token}'}
+headers = {'Content-Type': 'application/json', 'Authorization': '{0}'.format(api_token)}
 
 
 def get_account_info():
     
-    api_url = '{0}account'.format(api_url_base)
-
+    api_url = '{0}limit=2'.format(api_url_base)
+    print(api_url)
     response = requests.get(api_url, headers=headers)
-
+    print(headers)
+    print(response.raise_for_status())
     if response.status_code == 200:
         return json.loads(response.content.decode('utf-8'))
     else:
