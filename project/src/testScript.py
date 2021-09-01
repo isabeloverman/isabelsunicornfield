@@ -1,39 +1,43 @@
 # author: isabeloverman
-# This is a test script. The goal is to get a connection with an API.
+# This is a test script. The goal is to get a connection with the Skills API.
 # \/ \/ good references \/ \/
 # https://www.nylas.com/blog/use-python-requests-module-rest-apis/#how-to-use-python-requests
 # https://www.youtube.com/watch?v=W--_EOzdTHk 
 
+# imports
 import os
 from requests.auth import HTTPBasicAuth
 import requests
 import argparse
 
+# getting API key from user input because I can make that work
 print("Enter API key:")
 api_token = str(input())     # https://www.geeksforgeeks.org/taking-input-from-console-in-python/
 
+# base URL for API
 api_url_base =  "http://staging-app.infosecinstitute.com/portal/api/v1/"
 
+# headers: I think the authorization here is wrong or something
 headers = {'Content-Type': 'application/json', 'Authorization': '{0}'.format(api_token)}
 
-
+# call API and get response function
 def get_account_info():
     
     api_url = '{0}limit=2'.format(api_url_base)
     print(api_url)
     response = requests.get(api_url, headers=headers)
     print(headers)
-    print(response.raise_for_status())
+    #print(response.raise_for_status())
     if response.status_code == 200:
         return json.loads(response.content.decode('utf-8'))
     else:
         print(response.status_code)
         return None
 
-
-
+# call function 
 account_info = get_account_info()
 
+# check for response information
 if account_info is not None:
     print("Here\'s your info")
     for k, v in account_info['account'].items():
