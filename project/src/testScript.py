@@ -46,6 +46,12 @@ else:
     print('[!] Request Failed')
 
 
+
+
+
+#below this point is previous code that I couldn't get working
+
+
 # lines from Byan's code about parsing args that look important
 #parser = argparse.ArgumentParser()
 #parser.add_argument('-u', '--username', metavar='email:password', help='Used to make API calls', nargs=1, required=True)
@@ -87,8 +93,6 @@ else:
 
 
 
-
-
 # GET article URL - does it exist in instance?
 #req = Request('GET', api_url, headers={'content-type': 'application/json'}, auth=(username, password))
 #prepped = req.prepare()
@@ -103,9 +107,6 @@ else:
 
 
 
-
-
-
 # Regex check username:password.
 #username_regex = re.compile('\S+:\S+')
 #match = username_regex.search(args.username[0])
@@ -114,8 +115,4 @@ else:
 #    print('Error: not a valid user credentials - need username:password')
 #else:
 #    user_credentials = args.username[0].split(":")
-
-
-
-
 
