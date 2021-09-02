@@ -24,7 +24,7 @@ headers = {'Content-Type': 'application/json', 'Authorization': '{0}'.format(api
 # call API and get response function
 def get_course_info():
     
-    api_url = '{0}limit=2'.format(api_url_base)
+    api_url = '{0}courses/'.format(api_url_base)
     print(api_url)
     response = requests.get(api_url, headers=headers)
     print(headers)
@@ -41,7 +41,8 @@ course_info = get_course_info()
 # check for response information
 if course_info is not None:
     print("Here\'s your info")
-    for k, v in account_info['account'].items():
+    #print(course_info)
+    for k, v in course_info['courses'].items():
         print('{0}:{1}'.format(k, v))
 else:
     print('[!] Request Failed')
