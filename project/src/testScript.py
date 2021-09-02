@@ -10,6 +10,7 @@ from requests.auth import HTTPBasicAuth
 import requests
 import argparse
 import json
+from pprint import pprint
 
 # getting API key from user input because I can make that work
 print("Enter API key:")
@@ -41,7 +42,7 @@ course_info = get_course_info()
 # check for response information
 if course_info is not None:
     print("Here\'s your info")
-    print(course_info)  # so, just printing out the data: fine
+    pprint(course_info, indent=1)  # so, just printing out the data: fine
     #for k, v in course_info['courses']:    # but trying to make it pretty: not fine
         #print('{0}:{1}'.format(k, v))
         #print('')
