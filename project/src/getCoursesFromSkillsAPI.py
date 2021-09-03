@@ -19,13 +19,18 @@ api_token = str(input())     # https://www.geeksforgeeks.org/taking-input-from-c
 # base URL for API
 api_url_base =  "http://staging-app.infosecinstitute.com/portal/api/v1/"
 
+# add on at the end of the url that tell which category on info to bring back
+# for Skills courses - courese/
+# for Skills learners - learners/
+information_category = "courses/"
+
 # headers: I think the authorization here is wrong or something
 headers = {'Content-Type': 'application/json', 'Authorization': '{0}'.format(api_token)}
 
 # call API and get response function
 def get_course_info():
     
-    api_url = '{0}courses/'.format(api_url_base)
+    api_url = '{0}{1}'.format(api_url_base, information_category)
     print(api_url)
     response = requests.get(api_url, headers=headers)
     print(headers)
@@ -42,10 +47,7 @@ course_info = get_course_info()
 # check for response information
 if course_info is not None:
     print("Here\'s your info")
-    pprint(course_info, indent=1)  # so, just printing out the data: fine
-    #for k, v in course_info['courses']:    # but trying to make it pretty: not fine
-        #print('{0}:{1}'.format(k, v))
-        #print('')
+    pprint(course_info, indent=1)  
 else:
     print('[!] Request Failed')
 
