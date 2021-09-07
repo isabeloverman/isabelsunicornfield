@@ -22,7 +22,8 @@ api_url_base =  "http://staging-app.infosecinstitute.com/portal/api/v1/"
 # add on at the end of the url that tell which category on info to bring back
 # for Skills courses - courese/
 # for Skills learners - learners/
-information_category = "courses/"
+# for Skills learning paths - paths/
+information_category = "paths/"
 
 # headers: I think the authorization here is wrong or something
 headers = {'Content-Type': 'application/json', 'Authorization': '{0}'.format(api_token)}
