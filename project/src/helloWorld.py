@@ -37,3 +37,5 @@ set = course
 
 for x, y in dctnry.items():
     print(x, y)
+
+# turns out you have to from pprint import pprint and use that... 
