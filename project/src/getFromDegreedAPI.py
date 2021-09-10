@@ -14,6 +14,7 @@ import argparse
 import json
 from pprint import pprint
 
+
 # getting API key from user input because I can make that work
 print("Enter API key:")
 api_token = str(input())     # https://www.geeksforgeeks.org/taking-input-from-console-in-python/
@@ -24,11 +25,11 @@ api_url_base =  "https://api.degreed.com/api/v2/"
 # add on at the end of the url that tell which category on info to bring back
 # for Degreed courses - content/courses/
 # for Degreed users - users/
-# for Degreed 
-information_category = "content/courses/"
+# for Degreed pathways = pathways/
+information_category = "pathways/"
 
 # headers: I think the authorization here is wrong or something
-headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer {0}'.format(api_token)}
+headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + api_token}
 
 # call API and get response function
 def get_course_info():
@@ -37,7 +38,7 @@ def get_course_info():
     print(api_url)
     response = requests.get(api_url, headers=headers)
     print(headers)
-    #print(response.raise_for_status())
+    
     if response.status_code == 200:
         return json.loads(response.content.decode('utf-8'))
     else:
