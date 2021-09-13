@@ -21,13 +21,13 @@ print("Enter API key:")
 api_token = str(input())     # https://www.geeksforgeeks.org/taking-input-from-console-in-python/
 
 # base URL for API
-api_url_base =  "https://api.degreed.com/api/v2/"
+api_url_base =  "https://api.betatest.degreed.com/api/v2/"
 
 # add on at the end of the url that tell which category on info to bring back
 # for Degreed courses - content/courses/
 # for Degreed users - users/
 # for Degreed pathways = pathways/
-information_category = "pathways/"
+information_category = "users/"
 
 # headers: I think the authorization here is wrong or something
 headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + api_token}
