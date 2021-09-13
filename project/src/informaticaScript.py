@@ -1,3 +1,7 @@
+# https://docs.informatica.com/integration-cloud/cloud-api-manager/current-version/api-manager-guide/authentication-and-authorization/oauth-2-0-authentication-and-authorization/python-3-example--invoke-a-managed-api-with-oauth-2-0-authentica.html 
+# ^^^ this is the link I pulled the og version of this script from, I've been correcting it and personalizing it.
+
+
 import sys
 import requests
 import json
