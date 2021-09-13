@@ -26,8 +26,9 @@ api_url_base =  "https://api.betatest.degreed.com/api/v2/"
 # add on at the end of the url that tell which category on info to bring back
 # for Degreed courses - content/courses/
 # for Degreed users - users/
-# for Degreed pathways = pathways/
-information_category = "users/"
+# for Degreed required learning = required-learning/ - gets a 403
+# for Degreed completions - completions/ - gets a 403
+information_category = "content/courses/"
 
 # headers: I think the authorization here is wrong or something
 headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + api_token}
