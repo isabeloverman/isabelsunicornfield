@@ -17,7 +17,7 @@ test_api_url = "https://api.degreed.com/api/v2/content/courses/"
 ##
 def get_new_token():
 
-    auth_server_url = "https://api.degreed.com/oauth/token"
+    auth_server_url = "https://betatest.degreed.com/oauth/token"
     
     print('Enter client id:')
     client_id = str(input())
@@ -28,8 +28,8 @@ def get_new_token():
     token_req_payload = {'grant_type': 'client_credentials'}
 
     token_response = requests.post(auth_server_url,
-    data=token_req_payload, verify=False, allow_redirects=False,
-    auth=(client_id, client_secret))
+            data=token_req_payload, verify=False, allow_redirects=False,
+            auth=(client_id, client_secret))
 
     if token_response.status_code !=200:
         print("Failed to obtain token from the OAuth 2.0 server", file=sys.stderr)
