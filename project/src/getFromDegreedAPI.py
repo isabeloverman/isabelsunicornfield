@@ -13,6 +13,7 @@ import requests
 import argparse
 import json
 from pprint import pprint
+import sys
 
 
 # getting API key from user input because I can make that work
