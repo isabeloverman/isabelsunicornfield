@@ -4,6 +4,8 @@
 # https://www.nylas.com/blog/use-python-requests-module-rest-apis/#how-to-use-python-requests
 # https://www.youtube.com/watch?v=W--_EOzdTHk 
 # https://www.digitalocean.com/community/tutorials/how-to-use-web-apis-in-python-3 
+# https://docs.informatica.com/integration-cloud/cloud-api-manager/current-version/api-manager-guide/authentication-and-authorization/oauth-2-0-authentication-and-authorization/python-3-example--invoke-a-managed-api-with-oauth-2-0-authentica.html
+
 
 
 # imports
