@@ -8,9 +8,9 @@
 import os
 from requests.auth import HTTPBasicAuth
 import requests
-import argparse
 import json
 from pprint import pprint
+import csv
 
 # getting API key from user input because I can make that work
 print("Enter API key:")
@@ -53,3 +53,6 @@ else:
     print('[!] Request Failed')
 
 
+with open ('whatShouldICallThis.csv', 'w', encoding='UTF8', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(course_info)
