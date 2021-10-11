@@ -52,7 +52,7 @@ if course_info is not None:
 else:
     print('[!] Request Failed')
 
-
+# write API response to CSV file
 with open ('whatShouldICallThis.csv', 'w', encoding='UTF8', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(course_info)
