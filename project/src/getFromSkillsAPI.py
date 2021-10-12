@@ -49,10 +49,12 @@ course_info = get_course_info()
 if course_info is not None:
     print("Here\'s your info")
     pprint(course_info, indent=1)  
+
+    # write API response to CSV file
+    with open ('courseInfo.csv', 'w', encoding='UTF8', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(course_info)
 else:
     print('[!] Request Failed')
 
-# write API response to CSV file
-with open ('courseInfo.csv', 'w', encoding='UTF8', newline='') as f:
-    writer = csv.writer(f)
-    writer.writerow(course_info)
+
