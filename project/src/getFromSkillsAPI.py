@@ -60,10 +60,11 @@ else:
 # pagination
 current_page = 1
 
-while current_page != pageCount+1:
+while current_page != pageCount + 1:
     url = '{0}{1}{2}'.format(api_url_base, endpoint, current_page)
     console.log('getting page ' + current_page)
     response = get_course_info()
     data = json.parse(reponse.getContentText())
     pageCount = data.pageCount
-
+    current_page = pageCount + 1
+    
