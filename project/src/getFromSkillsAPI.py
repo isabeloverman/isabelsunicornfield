@@ -17,13 +17,13 @@ print("Enter API key:")
 api_token = str(input())     # https://www.geeksforgeeks.org/taking-input-from-console-in-python/
 
 # base URL for API
-api_url_base =  "http://staging-app.infosecinstitute.com/portal/api/v1/"
+api_url_base =  "http://app.infosecinstitute.com/portal/api/v1/"
 
 # add on at the end of the url that tell which category on info to bring back
 # for Skills courses - courses/
 # for Skills learners - learners/
 # for Skills learning paths - paths/
-information_category = "courses/"
+information_category = "paths/"
 
 # headers: I think the authorization here is wrong or something
 headers = {'Content-Type': 'application/json', 'Authorization': '{0}'.format(api_token)}
@@ -57,4 +57,8 @@ if course_info is not None:
 else:
     print('[!] Request Failed')
 
+# pagination
+current_page = 1
 
+while current_page != pageCount:
+    url = '{0}{1}{2}'.format(api_url_base, information_category, pageCount)
