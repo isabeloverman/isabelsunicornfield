@@ -68,7 +68,7 @@ while current_page != page_count + 1:
     print('getting page {0}'.format(current_page))
     
     response = get_course_info()
-    data = json.loads(reponse.getContentText())
+    data = json.loads(response.getContentText())
     page_count = data.page_count
     current_page = page_count + 1
     
